@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerC : MonoBehaviour
 {
@@ -11,6 +13,9 @@ public class PlayerC : MonoBehaviour
     public float jumpforce;
     public LayerMask ground;
     public int Cherry;
+    public AudioSource cherryAudio;
+
+    public Text CherryNum;
     // Start is called before the first frame update
     void Start()
     {
@@ -67,8 +72,15 @@ public class PlayerC : MonoBehaviour
     {
         if (collision.tag == "Collection")
         {
+            cherryAudio.Play();
             Destroy(collision.gameObject);
             Cherry += 1;
+            CherryNum.text = Cherry.ToString();
+        }
+
+        if(collision.tag == "DeadLine")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }

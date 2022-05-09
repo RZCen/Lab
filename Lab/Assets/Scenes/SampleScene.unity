@@ -374,7 +374,9 @@ GameObject:
   - component: {fileID: 1537887289}
   - component: {fileID: 1537887288}
   - component: {fileID: 1537887287}
+  - component: {fileID: 1537887290}
   - component: {fileID: 1537887286}
+  - component: {fileID: 1537887291}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -391,9 +393,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1537887285}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66f77d12f537e4c149d57daf1189eaec, type: 3}
+  m_Script: {fileID: 11500000, guid: 93d4398460d044d25b5673f374e3d172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coll: {fileID: 1537887290}
+  speed: 10
+  jumpforce: 7
+  ground:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!50 &1537887287
 Rigidbody2D:
   serializedVersion: 4
@@ -414,7 +422,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &1537887288
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -480,6 +488,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1537887290
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537887285}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.45842123}
+  serializedVersion: 2
+  m_Radius: 0.57282877
+--- !u!95 &1537887291
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537887285}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8261e3957c2c44750a34a56c76d89784, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1857109456
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,7 +535,7 @@ GameObject:
   - component: {fileID: 1857109460}
   - component: {fileID: 1857109459}
   - component: {fileID: 1857109458}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
